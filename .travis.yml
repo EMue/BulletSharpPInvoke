@@ -40,8 +40,8 @@ matrix:
     - cmake --build .
     - strip libbulletc.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
 
   # -----------------
   - name: "Linux arm32"
@@ -79,8 +79,8 @@ matrix:
     - cmake --build .
     - arm-linux-gnueabihf-strip libbulletc.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
 
     # -----------------
   - name: "Linux arm64"
@@ -121,8 +121,8 @@ matrix:
     - cmake --build .
     - aarch64-linux-gnu-strip libbulletc.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
 
   # -----------------
   - name: "Linux mips64"
@@ -161,8 +161,8 @@ matrix:
     - cmake --build .
     - mips64el-linux-gnuabi64-strip libbulletc.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/mips64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/mips64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/mips64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/mips64/ $S3_PARAMS"
 
   # -----------------
   - name: "Linux ppc64le"
@@ -203,8 +203,8 @@ matrix:
     - cmake --build .
     - powerpc64le-linux-gnu-strip libbulletc.so
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
 
   # -----------------
   - name: "macOS"
@@ -230,5 +230,5 @@ matrix:
     - cmake --build .
     - strip -u -r libbulletc.dylib
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.dylib.git"
-    - "aws s3 cp libbulletc.dylib s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.dylib.git s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.dylib s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
+    #- "aws s3 cp libbulletc.dylib.git s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
