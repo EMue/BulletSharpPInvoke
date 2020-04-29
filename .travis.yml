@@ -201,6 +201,9 @@ matrix:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
 
     script:
+    - eval "$(ssh-agent -s)"
+    - chmod 600 .travis/id_rsa_deploy_travis
+    - ssh-add .travis/id_rsa_deploy_travis
     - cd libbulletc
     - mkdir build
     - cd build
@@ -210,6 +213,19 @@ matrix:
     - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
     #- "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
     #- "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/ppc64le/ $S3_PARAMS"
+    - mkdir -p ../deploy
+    - cp libbulletc.so ../deploy
+    - cp libbulletc.so.git ../deploy
+    - cd ../deploy
+    - git init
+    - git remote add origin git@github.com:EMue/lwjgl3-bin.git
+    - git fetch origin 0449e44c07e2bdf09e79f21c75a92f7d94b0e496
+    - git checkout 0449e44c07e2bdf09e79f21c75a92f7d94b0e496
+    - git branch ppc64le_nightly_bullet
+    - git checkout ppc64le_nightly_bullet
+    - git add libbulletc.so libbulletc.so.git
+    - git commit -m "Deploy BulletSharpPInvoke from Travis CI."
+    - git push --force origin ppc64le_nightly_bullet
 
   # -----------------
   - name: "macOS"
