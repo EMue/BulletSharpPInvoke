@@ -28,6 +28,7 @@ matrix:
     before_install:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
@@ -67,6 +68,7 @@ matrix:
     - sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - sudo dpkg --add-architecture armhf
     - sudo apt-get update || true
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
@@ -109,6 +111,7 @@ matrix:
     - sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - sudo dpkg --add-architecture arm64
     - sudo apt-get update || true
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
@@ -149,6 +152,7 @@ matrix:
     - sudo sh -c "echo 'deb http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list"
     - sudo dpkg --add-architecture mips64el
     - sudo apt-get update || true
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
@@ -191,6 +195,7 @@ matrix:
     - sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - sudo dpkg --add-architecture ppc64el
     - sudo apt-get update || true
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
@@ -215,6 +220,7 @@ matrix:
 
     before_install:
     - brew update
+    - openssl aes-256-cbc -K $encrypted_3b8cb6da0fbe_key -iv $encrypted_3b8cb6da0fbe_iv -in .travis/id_rsa_deploy_travis.enc -out .travis/id_rsa_deploy_travis -d
 
     install:
     - brew install awscli
